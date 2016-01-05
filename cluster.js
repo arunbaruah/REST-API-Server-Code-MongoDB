@@ -19,7 +19,7 @@ if(cluster.isMaster) {
 		cluster.fork();
 	});
 } else {
-	//our code -- just include the app.js
+	//our code -- just include the server.js
 	require('./server.js');
 
 }
