@@ -1,0 +1,24 @@
+Q. How to update the _id, in my case it is the mobile number
+Ans: below is the solution
+
+You cannot update it. You'll have to save the document using a new _id, and then remove the old document.
+
+// store the document in a variable
+doc = db.clients.findOne({_id: ObjectId("4cc45467c55f4d2d2a000002")})
+
+// set a new _id on the document
+doc._id = ObjectId("4c8a331bda76c559ef000004")
+
+// insert the document, using the new _id
+db.clients.insert(doc)
+
+// remove the document with the old _id
+db.clients.remove({_id: ObjectId("4cc45467c55f4d2d2a000002")})
+
+
+
+My Approach --  1) get by _id and store it in a var
+                2) set the new mobile_no in that var - var.mobile_no and then
+                3) call the post method
+                4) Finally findAndRemove the old doc by Delete verb
+
